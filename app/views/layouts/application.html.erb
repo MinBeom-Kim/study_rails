@@ -11,6 +11,30 @@
 
   <body>
 
+    <header id = "header">
+        <nav class = "navbar navbar-expand navbar-dark" style="background-color: #404146">
+            <div class = "container">
+	            <h5 style="color:#E8ECFF">
+                    <%= link_to '[STUDY]', home_index_path %>
+	            </h5>
+            </div>
+            <div>
+            <div>
+              <p class="navbar-text pull-right">
+              <% if user_signed_in? %>
+                <strong><%= current_user.email %></strong>.
+                <%= link_to "회원정보 수정", edit_user_registration_path, :class => 'navbar-link' %> |
+                <%= link_to "로그아웃", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+              <% else %>
+                <%= link_to "회원가입", new_user_registration_path, :class => 'navbar-link' %> |
+                <%= link_to "로그인", new_user_session_path, :class => 'navbar-link' %>
+              <% end %>
+              </p>
+              </div>
+            </div>
+        </nav>
+    </header>
+
     <% if notice %>
       <p class="alert alert-success"><%= notice %> </p>
     <% end%>
@@ -19,17 +43,13 @@
     <% end%>
     <%= yield %>
 
-    <div>
-    <p class="navbar-text pull-right">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to "회원정보 수정", edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "로그아웃", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
-    <% else %>
-      <%= link_to "회원가입", new_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "로그인", new_user_session_path, :class => 'navbar-link' %>
-    <% end %>
-    </p>
-    </div>
+    <footer style="width: 100%; height: 50%; background-color: #404146; padding-top: 1%">
+      <div class = "container">
+        <ul style="color: aliceblue; font-size: 100%; list-style: none;">
+          <li style="display: inline;">&copy; 2019 COSMOS</li>
+        </ul>
+      </div>
+	  </footer>
+
   </body>
 </html>
