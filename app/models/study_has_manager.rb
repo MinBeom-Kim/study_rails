@@ -1,4 +1,4 @@
 class StudyHasManager < ApplicationRecord
-  belongs_to :manager
-  belongs_to :study
+  belongs_to :manager, required: false
+  belongs_to :study, required: false
 end

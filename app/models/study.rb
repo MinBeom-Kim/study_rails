@@ -5,5 +5,4 @@ class Study < ApplicationRecord
     has_many :user_has_studies
     has_many :managers
     has_many :study_has_managers
-
 end
