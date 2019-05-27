@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Category Has Studies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Study</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @category_has_studies.each do |category_has_study| %>
+      <tr>
+        <td><%= category_has_study.category %></td>
+        <td><%= category_has_study.study %></td>
+        <td><%= link_to 'Show', category_has_study %></td>
+        <td><%= link_to 'Edit', edit_category_has_study_path(category_has_study) %></td>
+        <td><%= link_to 'Destroy', category_has_study, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category Has Study', new_category_has_study_path %>
