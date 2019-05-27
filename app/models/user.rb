@@ -8,4 +8,14 @@ class User < ApplicationRecord
 
   has_many :stydues
   has_many :user_has_studies
+
+  def enrollment_status(study)
+    if CategoryHasStudy.where(category_id: self.id, study_id: study.id).exists?
+      return "신청완료"
+    else
+      return ""
+    end
+  end
+
+
 end

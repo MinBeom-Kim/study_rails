@@ -5,6 +5,7 @@ class StudiesController < ApplicationController
   # GET /studies.json
   def index
     @studies = Study.all
+    @study_new = Study.new
   end
 
   # GET /studies/1
