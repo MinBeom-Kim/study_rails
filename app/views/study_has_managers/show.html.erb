@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Manager:</strong>
+  <%= @study_has_manager.manager %>
+</p>
+
+<p>
+  <strong>Study:</strong>
+  <%= @study_has_manager.study %>
+</p>
+
+<p>
+  <strong>Approve:</strong>
+  <%= @study_has_manager.approve %>
+</p>
+
+<%= link_to 'Edit', edit_study_has_manager_path(@study_has_manager) %> |
+<%= link_to 'Back', study_has_managers_path %>

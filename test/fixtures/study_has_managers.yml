@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manager: one
+  study: one
+  approve: 
+
+two:
+  manager: two
+  study: two
+  approve: 

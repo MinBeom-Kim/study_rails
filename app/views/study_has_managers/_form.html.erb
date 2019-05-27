@@ -1,0 +1,32 @@
+<%= form_with(model: study_has_manager, local: true) do |form| %>
+  <% if study_has_manager.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(study_has_manager.errors.count, "error") %> prohibited this study_has_manager from being saved:</h2>
+
+      <ul>
+      <% study_has_manager.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :manager_id %>
+    <%= form.text_field :manager_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :study_id %>
+    <%= form.text_field :study_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :approve %>
+    <%= form.text_field :approve %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
