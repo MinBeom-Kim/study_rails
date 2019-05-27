@@ -17,6 +17,9 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'figaro'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
