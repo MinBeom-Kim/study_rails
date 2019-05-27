@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_114130) do
+ActiveRecord::Schema.define(version: 2019_05_27_115352) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "category_has_studies", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "study_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_has_studies_on_category_id"
+    t.index ["study_id"], name: "index_category_has_studies_on_study_id"
   end
 
   create_table "managers", force: :cascade do |t|
@@ -34,6 +43,26 @@ ActiveRecord::Schema.define(version: 2019_05_27_114130) do
     t.boolean "status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "study_has_managers", force: :cascade do |t|
+    t.integer "manager_id"
+    t.integer "study_id"
+    t.boolean "approve", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["manager_id"], name: "index_study_has_managers_on_manager_id"
+    t.index ["study_id"], name: "index_study_has_managers_on_study_id"
+  end
+
+  create_table "user_has_studies", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "study_id"
+    t.integer "user_role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["study_id"], name: "index_user_has_studies_on_study_id"
+    t.index ["user_id"], name: "index_user_has_studies_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
