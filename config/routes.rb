@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_has_studies
   resources :studies
   resources :categories
   resources :managers
