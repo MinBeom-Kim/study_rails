@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Study name:</strong>
+  <%= @study.study_name %>
+</p>
+
+<p>
+  <strong>Intro:</strong>
+  <%= @study.intro %>
+</p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @study.goal %>
+</p>
+
+<p>
+  <strong>Curriculum:</strong>
+  <%= @study.curriculum %>
+</p>
+
+<p>
+  <strong>Max number:</strong>
+  <%= @study.max_number %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @study.status %>
+</p>
+
+<%= link_to 'Edit', edit_study_path(@study) %> |
+<%= link_to 'Back', studies_path %>

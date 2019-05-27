@@ -1,0 +1,47 @@
+<%= form_with(model: study, local: true) do |form| %>
+  <% if study.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(study.errors.count, "error") %> prohibited this study from being saved:</h2>
+
+      <ul>
+      <% study.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :study_name %>
+    <%= form.text_field :study_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :intro %>
+    <%= form.text_field :intro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :goal %>
+    <%= form.text_field :goal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :curriculum %>
+    <%= form.text_field :curriculum %>
+  </div>
+
+  <div class="field">
+    <%= form.label :max_number %>
+    <%= form.number_field :max_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
