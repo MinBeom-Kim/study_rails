@@ -14,7 +14,6 @@ class StudiesTest < ApplicationSystemTestCase
     visit studies_url
     click_on "New Study"
 
-    fill_in "Category", with: @study.category_id
     fill_in "Curriculum", with: @study.curriculum
     fill_in "Goal", with: @study.goal
     fill_in "Intro", with: @study.intro
@@ -31,7 +30,6 @@ class StudiesTest < ApplicationSystemTestCase
     visit studies_url
     click_on "Edit", match: :first
 
-    fill_in "Category", with: @study.category_id
     fill_in "Curriculum", with: @study.curriculum
     fill_in "Goal", with: @study.goal
     fill_in "Intro", with: @study.intro
