@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :studies
   resources :categories do
     resources :studies
   end
