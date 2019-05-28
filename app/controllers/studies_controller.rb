@@ -15,40 +15,51 @@ class StudiesController < ApplicationController
 
   # GET /studies/new
   def new
-    @category = Category.find(params[:category_id])
-    @study = @category.studies.new
+    @study = Study.new
   end
 
   # GET /studies/1/edit
   def edit
-    @category = Category.find(params[:category_id])
-    @study = @category.studies.find(params[:id])
   end
 
   # POST /studies
   # POST /studies.json
   def create
-    @category = Category.find(params[:category_id])
-    @study = @category.studies.create(study_params)
-    #@study = Study.new(study_params)
-    redirect_to category_path(@category)
+    @study = Study.new(study_params)
+
+    respond_to do |format|
+      if @study.save
+        format.html { redirect_to @study, notice: 'Study was successfully created.' }
+        format.json { render :show, status: :created, location: @study }
+      else
+        format.html { render :new }
+        format.json { render json: @study.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /studies/1
   # PATCH/PUT /studies/1.json
   def update
-    @category = Category.find(params[:category_id])
-    @study = @category.studies.find(params[:id])
-    @study.update(study_params)
-    redirect_to category_path(@category)
+    respond_to do |format|
+      if @study.update(study_params)
+        format.html { redirect_to @study, notice: 'Study was successfully updated.' }
+        format.json { render :show, status: :ok, location: @study }
+      else
+        format.html { render :edit }
+        format.json { render json: @study.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /studies/1
   # DELETE /studies/1.json
   def destroy
-    @category = Category.find(params[:category_id])
     @study.destroy
-    redirect_to category_path(@category)
+    respond_to do |format|
+      format.html { redirect_to studies_url, notice: 'Study was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
