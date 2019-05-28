@@ -1,6 +1,9 @@
 class Study < ApplicationRecord
-    has_many :categories
-    has_many :category_has_studies
+    #has_many :categories
+    #has_many :category_has_studies
+
+    belongs_to :categories
+
     has_many :users
     has_many :user_has_studies
     has_many :managers
