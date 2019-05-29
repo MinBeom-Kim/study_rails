@@ -14,7 +14,7 @@ class StudyHasManagersTest < ApplicationSystemTestCase
     visit study_has_managers_url
     click_on "New Study Has Manager"
 
-    fill_in "Approve", with: @study_has_manager.approve
+    check "Approve" if @study_has_manager.approve
     fill_in "Manager", with: @study_has_manager.manager_id
     fill_in "Study", with: @study_has_manager.study_id
     click_on "Create Study has manager"
@@ -27,7 +27,7 @@ class StudyHasManagersTest < ApplicationSystemTestCase
     visit study_has_managers_url
     click_on "Edit", match: :first
 
-    fill_in "Approve", with: @study_has_manager.approve
+    check "Approve" if @study_has_manager.approve
     fill_in "Manager", with: @study_has_manager.manager_id
     fill_in "Study", with: @study_has_manager.study_id
     click_on "Update Study has manager"

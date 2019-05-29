@@ -69,6 +69,6 @@ class StudyHasManagersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def study_has_manager_params
-      params.require(:study_has_manager).permit(:manager_id, :study_id, :approve)
+      params.require(:study_has_manager).permit(:study_id, :manager_id, :approve)
     end
 end

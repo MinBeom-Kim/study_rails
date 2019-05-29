@@ -5,7 +5,6 @@ class StudiesController < ApplicationController
   # GET /studies.json
   def index
     @studies = Study.all
-    @study_new = Study.new
   end
 
   # GET /studies/1
@@ -70,6 +69,6 @@ class StudiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def study_params
-      params.require(:study).permit(:study_name, :intro, :goal, :curriculum, :max_number, :status)
+      params.require(:study).permit(:category_id, :study_name, :intro, :goal, :curriculum, :max_number, :status)
     end
 end

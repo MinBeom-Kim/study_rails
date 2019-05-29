@@ -1,16 +1,17 @@
-<br>
+<p id="notice"><%= notice %></p>
+
 <h1>Studies</h1>
 
 <table>
   <thead>
     <tr>
-      <th>스터디명</th>
-      <th>개요</th>
-      <th>목표</th>
-      <th>커리큘럼</th>
-      <th>정원</th>
-      <th>신청 인원</th>
-      <th>개설유무</th>
+      <th>Category</th>
+      <th>Study name</th>
+      <th>Intro</th>
+      <th>Goal</th>
+      <th>Curriculum</th>
+      <th>Max number</th>
+      <th>Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,12 +19,12 @@
   <tbody>
     <% @studies.each do |study| %>
       <tr>
+        <td><%= study.category %></td>
         <td><%= study.study_name %></td>
         <td><%= study.intro %></td>
         <td><%= study.goal %></td>
         <td><%= study.curriculum %></td>
         <td><%= study.max_number %></td>
-        <td><%= CategoryHasStudy.where(study_id: study).size %>명</td>
         <td><%= study.status %></td>
         <td><%= link_to 'Show', study %></td>
         <td><%= link_to 'Edit', edit_study_path(study) %></td>
@@ -34,3 +35,5 @@
 </table>
 
 <br>
+
+<%= link_to 'New Study', new_study_path %>

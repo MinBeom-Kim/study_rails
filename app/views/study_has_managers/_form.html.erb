@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :manager_id %>
-    <%= form.text_field :manager_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :study_id %>
     <%= form.text_field :study_id %>
   </div>
 
   <div class="field">
+    <%= form.label :manager_id %>
+    <%= form.text_field :manager_id %>
+  </div>
+
+  <div class="field">
     <%= form.label :approve %>
-    <%= form.text_field :approve %>
+    <%= form.check_box :approve %>
   </div>
 
   <div class="actions">

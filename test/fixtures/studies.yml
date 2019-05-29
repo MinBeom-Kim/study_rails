@@ -1,16 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  category: one
   study_name: MyString
-  intro: 
+  intro: MyString
   goal: MyString
   curriculum: MyString
   max_number: 1
   status: false
 
 two:
+  category: two
   study_name: MyString
-  intro: 
+  intro: MyString
   goal: MyString
   curriculum: MyString
   max_number: 1

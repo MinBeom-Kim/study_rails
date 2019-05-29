@@ -33,6 +33,18 @@
               <% end %>
               </p>
               </div>
+              <div>
+              <p class="navbar-text pull-right">
+              <% if manager_signed_in? %>
+                <strong><%= current_manager.email %></strong>.
+                <%= link_to "관리자정보 수정", edit_manager_registration_path, :class => 'navbar-link' %> |
+                <%= link_to "로그아웃", destroy_manager_session_path, method: :delete, :class => 'navbar-link' %>
+              <% else %>
+                <%= link_to "관리자회원가입", new_manager_registration_path, :class => 'navbar-link' %> |
+                <%= link_to "관리자로그인", new_manager_session_path, :class => 'navbar-link' %>
+              <% end %>
+              </p>
+              </div>
             </div>
         </nav>
     </header>

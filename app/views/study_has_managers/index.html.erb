@@ -1,10 +1,12 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Study Has Managers</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Manager</th>
       <th>Study</th>
+      <th>Manager</th>
       <th>Approve</th>
       <th colspan="3"></th>
     </tr>
@@ -13,8 +15,8 @@
   <tbody>
     <% @study_has_managers.each do |study_has_manager| %>
       <tr>
-        <td><%= study_has_manager.manager %></td>
         <td><%= study_has_manager.study %></td>
+        <td><%= study_has_manager.manager %></td>
         <td><%= study_has_manager.approve %></td>
         <td><%= link_to 'Show', study_has_manager %></td>
         <td><%= link_to 'Edit', edit_study_has_manager_path(study_has_manager) %></td>
