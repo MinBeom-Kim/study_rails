@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @category_has_study.category %>
+</p>
+
+<p>
+  <strong>Study:</strong>
+  <%= @category_has_study.study %>
+</p>
+
+<%= link_to 'Edit', edit_category_has_study_path(@category_has_study) %> |
+<%= link_to 'Back', category_has_studies_path %>

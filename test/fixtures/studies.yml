@@ -2,8 +2,7 @@
 
 one:
   study_name: MyString
-  category: one
-  intro: MyString
+  intro: 
   goal: MyString
   curriculum: MyString
   max_number: 1
@@ -11,8 +10,7 @@ one:
 
 two:
   study_name: MyString
-  category: two
-  intro: MyString
+  intro: 
   goal: MyString
   curriculum: MyString
   max_number: 1
