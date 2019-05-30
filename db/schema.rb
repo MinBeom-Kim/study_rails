@@ -10,49 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_115352) do
+ActiveRecord::Schema.define(version: 2019_05_30_081555) do
 
   create_table "categories", force: :cascade do |t|
-    t.string "category_name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "category_has_studies", force: :cascade do |t|
-    t.integer "category_id"
-    t.integer "study_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_category_has_studies_on_category_id"
-    t.index ["study_id"], name: "index_category_has_studies_on_study_id"
-  end
-
-  create_table "managers", force: :cascade do |t|
-    t.string "manager_email", null: false
-    t.string "manager_pw", null: false
+    t.string "category_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "studies", force: :cascade do |t|
-    t.string "study_name", null: false
+    t.integer "category_id"
+    t.string "study_name"
     t.string "intro"
     t.string "goal"
     t.string "curriculum"
-    t.integer "max_number", default: 0, null: false
-    t.boolean "status", default: false, null: false
+    t.integer "max_number"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "study_has_managers", force: :cascade do |t|
-    t.integer "manager_id"
-    t.integer "study_id"
-    t.boolean "approve", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["manager_id"], name: "index_study_has_managers_on_manager_id"
-    t.index ["study_id"], name: "index_study_has_managers_on_study_id"
+    t.index ["category_id"], name: "index_studies_on_category_id"
   end
 
   create_table "user_has_studies", force: :cascade do |t|

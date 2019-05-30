@@ -14,11 +14,12 @@ class StudiesTest < ApplicationSystemTestCase
     visit studies_url
     click_on "New Study"
 
+    fill_in "Category", with: @study.category_id
     fill_in "Curriculum", with: @study.curriculum
     fill_in "Goal", with: @study.goal
     fill_in "Intro", with: @study.intro
     fill_in "Max number", with: @study.max_number
-    check "Status" if @study.status
+    fill_in "Sta", with: @study.sta
     fill_in "Study name", with: @study.study_name
     click_on "Create Study"
 
@@ -30,11 +31,12 @@ class StudiesTest < ApplicationSystemTestCase
     visit studies_url
     click_on "Edit", match: :first
 
+    fill_in "Category", with: @study.category_id
     fill_in "Curriculum", with: @study.curriculum
     fill_in "Goal", with: @study.goal
     fill_in "Intro", with: @study.intro
     fill_in "Max number", with: @study.max_number
-    check "Status" if @study.status
+    fill_in "Sta", with: @study.sta
     fill_in "Study name", with: @study.study_name
     click_on "Update Study"
 

@@ -17,7 +17,7 @@ class StudiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create study" do
     assert_difference('Study.count') do
-      post studies_url, params: { study: { curriculum: @study.curriculum, goal: @study.goal, intro: @study.intro, max_number: @study.max_number, status: @study.status, study_name: @study.study_name } }
+      post studies_url, params: { study: { category_id: @study.category_id, curriculum: @study.curriculum, goal: @study.goal, intro: @study.intro, max_number: @study.max_number, sta: @study.sta, study_name: @study.study_name } }
     end
 
     assert_redirected_to study_url(Study.last)
@@ -34,7 +34,7 @@ class StudiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update study" do
-    patch study_url(@study), params: { study: { curriculum: @study.curriculum, goal: @study.goal, intro: @study.intro, max_number: @study.max_number, status: @study.status, study_name: @study.study_name } }
+    patch study_url(@study), params: { study: { category_id: @study.category_id, curriculum: @study.curriculum, goal: @study.goal, intro: @study.intro, max_number: @study.max_number, sta: @study.sta, study_name: @study.study_name } }
     assert_redirected_to study_url(@study)
   end
 

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Category:</strong>
+  <%= @study.category %>
+</p>
+
+<p>
   <strong>Study name:</strong>
   <%= @study.study_name %>
 </p>
@@ -26,8 +31,8 @@
 </p>
 
 <p>
-  <strong>Status:</strong>
-  <%= @study.status %>
+  <strong>Sta:</strong>
+  <%= @study.sta %>
 </p>
 
 <%= link_to 'Edit', edit_study_path(@study) %> |
