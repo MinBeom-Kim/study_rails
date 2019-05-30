@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_30_081555) do
+ActiveRecord::Schema.define(version: 2019_05_30_102506) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 2019_05_30_081555) do
     t.string "study_name"
     t.string "intro"
     t.string "goal"
-    t.string "curriculum"
+    t.string "curriculem"
     t.integer "max_number"
-    t.string "status"
+    t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_studies_on_category_id"

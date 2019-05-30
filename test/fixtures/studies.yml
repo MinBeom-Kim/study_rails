@@ -5,15 +5,15 @@ one:
   study_name: MyString
   intro: MyString
   goal: MyString
-  curriculum: MyString
+  curriculem: MyString
   max_number: 1
-  sta: MyString
+  status: false
 
 two:
   category: two
   study_name: MyString
   intro: MyString
   goal: MyString
-  curriculum: MyString
+  curriculem: MyString
   max_number: 1
-  sta: MyString
+  status: false

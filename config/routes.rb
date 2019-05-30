@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :user_has_studies
   resources :studies
+  resources :user_has_studies
   resources :categories
   get 'home/index'
   get 'home/show'

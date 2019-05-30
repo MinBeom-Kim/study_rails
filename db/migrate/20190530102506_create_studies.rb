@@ -5,9 +5,9 @@ class CreateStudies < ActiveRecord::Migration[5.2]
       t.string :study_name
       t.string :intro
       t.string :goal
-      t.string :curriculum
+      t.string :curriculem
       t.integer :max_number
-      t.string :status
+      t.boolean :status
 
       t.timestamps
     end
