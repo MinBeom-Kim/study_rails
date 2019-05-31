@@ -2,7 +2,7 @@
 
 <div class="jumbotron" style="margin-bottom: 3 ">
 	<div class="container">
-        <h1 style="font-family:inherit">Studies</h1>
+        <h1 style="font-family:inherit">스터디 관리</h1>
     </div>
 </div>
 
@@ -10,7 +10,6 @@
 <table>
   <thead>
     <tr>
-      <th>카테고리</th>
       <th>스터디명</th>
       <th>개요</th>
       <th>목표</th>
@@ -24,7 +23,6 @@
   <tbody>
     <% @studies.each do |study| %>
       <tr>
-        <td><%= study.category %></td>
         <td><%= study.study_name %></td>
         <td><%= study.intro %></td>
         <td><%= study.goal %></td>
@@ -38,7 +36,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Study', new_study_path %>

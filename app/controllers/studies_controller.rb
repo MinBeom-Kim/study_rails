@@ -25,8 +25,9 @@ class StudiesController < ApplicationController
   # POST /studies
   # POST /studies.json
   def create
+    @category = Category.find(params[:category_id])
     @study = @category.studies.create(study_params)
-    redirect_to category_path(@categoory)
+    redirect_to category_path(@category)
   end
 
   # PATCH/PUT /studies/1
@@ -41,7 +42,7 @@ class StudiesController < ApplicationController
   # DELETE /studies/1.json
   def destroy
     @study.destroy
-    redirect_to category_path(@categoory)
+    redirect_to category_path(@category)
   end
 
   private
