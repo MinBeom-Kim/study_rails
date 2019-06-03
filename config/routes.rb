@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :categories do
     resources :studies
   end
+
+  resources :sessions, only: [:update]
+
+
   get 'home/index'
   get 'home/show'
   get 'home/index'

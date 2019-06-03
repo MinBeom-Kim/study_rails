@@ -20,6 +20,8 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
+gem 'cancancan'
+gem 'rolify'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
