@@ -11,7 +11,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header id = "header">
+  <header id = "header" class="fixed-top">
         <nav class = "navbar navbar-expand navbar-dark" style="background-color: #404146">
             <div class = "container">
 	            <h5 style="color:#E8ECFF">
@@ -21,11 +21,11 @@
             <div>
               <p class="navbar-text pull-right">
               <% if user_signed_in? %>
-                <strong><%= current_user.email %></strong>.
-                <%= link_to "회원정보 수정", edit_user_registration_path, :class => 'navbar-link' %> |
+                <strong><%= current_user.email %> 님 안녕하세요 </strong>  | 
+                <%= link_to "회원정보 수정", edit_user_registration_path, :class => 'navbar-link' %>  | 
                 <%= link_to "로그아웃", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
               <% else %>
-                <%= link_to "회원가입", new_user_registration_path, :class => 'navbar-link' %> |
+                <%= link_to "회원가입", new_user_registration_path, :class => 'navbar-link' %>  | 
                 <%= link_to "로그인", new_user_session_path, :class => 'navbar-link' %>
               <% end %>
               </p>
@@ -34,7 +34,7 @@
         </nav>
     </header>
 
-  <body>
+  <body class="container-fluid wrapper">
 
     
     <% if notice %>
@@ -48,12 +48,13 @@
 
   </body>
 
-     <footer style="width: 100%; height: 50%; background-color: #404146; padding-top: 1%; margin-top: 3%">
+     <footer class="fixed-bottom" style="background-color: #404146; padding-top: 1%; margin-top: 3%">
       <div class = "container">
         <ul style="color: aliceblue; font-size: 100%; list-style: none;">
           <li style="display: inline;">&copy; 2019 COSMOS</li>
         </ul>
       </div>
     </footer>
+
     
 </html>
