@@ -1,0 +1,16 @@
+<div>
+<h2 style = "color: #489DD4; font-family:inherit">모든 스터디</h2>
+
+<hr>
+<br>
+<div style="margin: 0.5%">
+
+    <% @studies.each do |study| %>
+        <span style="font: Bold; font-size:15px; margin-left:5% ">
+        <%= link_to study.study_name, [study.category, study] %>
+            
+        </span>
+    <% end %>
+
+
+</div>

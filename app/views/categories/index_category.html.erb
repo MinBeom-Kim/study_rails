@@ -1,11 +1,16 @@
 <div>
-<h1 style = "color: #489DD4; font-family:inherit">모든 카테고리</h1>
-<br>
+<h2 style = "color: #489DD4; font-family:inherit">모든 카테고리</h2>
 <hr>
-<div style="margin: 1.5%">
+<br>
+<div style="margin: 0.5%">
 
     <% @categories.each do |category| %>
-        <span style="font: Bold; font-size:20px; "><%= category.category_name %></span>
+        <span style="font: Bold; font-size:20px; margin-left:5% ">
+        
+        
+        <%= link_to category.category_name, category %>
+        
+        </span>
     <% end %>
 
 

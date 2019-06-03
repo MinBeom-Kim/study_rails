@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:update]
 
-
   get 'home/index'
   get 'home/show'
   get 'home/index'
