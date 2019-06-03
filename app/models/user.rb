@@ -9,13 +9,29 @@ class User < ApplicationRecord
   has_many :stydues
   has_many :user_has_studies
 
-  def enrollment_status(study)
-    if CategoryHasStudy.where(category_id: self.id, study_id: study.id).exists?
-      return "신청완료"
-    else
-      return ""
-    end
+  after_create :assign_default_role
+
+   rolify :before_add => :before_add_method
+
+   def before_add_method(role)
+    # do something before it gets added
   end
+
+  def assign_default_role
+    emails = ['admin01@gmail.com', 'admin02@gmail.com', 'admin03@gmail.com']
+    if emails.include? self.email
+      add_role(:admin)
+    else 
+      add_role(:user)
+    end
+    
+  end
+
+users = User.with_role(:admin).preload(:roles)
+users.each do |user|
+  user.has_cached_role?(:member) # no extra queries
+end
+
 
 
 end
