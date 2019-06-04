@@ -21,8 +21,12 @@
         <td><%= category.category_name %></td>
         <td><%= category.studies.size %></td>
         <td><%= link_to 'Show', category %></td>
+        <% if can? :edit, @category %>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <% end %>
+        <% if can? :Destroy, @category %>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +34,6 @@
 
 <br>
 
+<% if can? :new, @category %>
 <%= link_to 'New Category', new_category_path %>
+<% end %>

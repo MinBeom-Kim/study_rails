@@ -8,12 +8,21 @@
   <% @category.studies.each do |study| %>
     <tr>
       <td><%= study.study_name %></td>
+      <% if can? :edit, @category.studies%>
       <td> | <%= link_to 'Edit', edit_category_study_path(@category, study) %></td>
+      <% end %>
+      <% if can? :destroy, @category.studies%>
       <td><%= link_to 'Destroy', [study.category, study], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
 
+<br>
+<hr>
+<p>
+  <strong>스터디 신청하기</strong>
+</p>
 
 <%= render 'studies/form' %>
 <%= link_to 'Study list', studies_path %>
