@@ -8,7 +8,7 @@
   <% @category.studies.each do |study| %>
     <tr>
       <td><%= study.study_name %></td>
-      <% if can? :edit, @category.studies%>
+      <% if can? :edit, @category.studies %>
       <td> | <%= link_to 'Edit', edit_category_study_path(@category, study) %></td>
       <% end %>
       <% if can? :destroy, @category.studies%>
@@ -25,6 +25,7 @@
 </p>
 
 <%= render 'studies/form' %>
+
 <%= link_to 'Study list', studies_path %>
 <br>
 <%= link_to 'Back', categories_path(@category) %>

@@ -1,0 +1,9 @@
+<%= form_with(model: [@category, @category.studies.build], local: true) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status %>
+  </div>
+
+<% end %>

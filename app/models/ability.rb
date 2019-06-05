@@ -11,7 +11,8 @@ class Ability
          can :manage, :all
        else
         can [:index, :show], Category
-        can [:manage], Study
+        can [:index, :show, :new, :create], Study
+        can [:edit, :update, :destroy], Study, User_id: user.id
        end 
     #
     # The first argument to `can` is the action you are giving the user

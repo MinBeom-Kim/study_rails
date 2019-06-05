@@ -1,16 +1,17 @@
 
 <div class="jumbotron" style="margin-bottom: 3 ">
 	<div class="container">
-        <h1 style="font-family:inherit">User Has Studies</h1>
+        <h1 style="font-family:inherit">스터디 신청 목록</h1>
     </div>
 </div>
 
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Study</th>
-      <th>User role</th>
+      <th>사용자</th>
+      <th>스터디명</th>
+      <th>신청자 수</th>
+      <th>역할</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
       <tr>
         <td><%= user_has_study.user %></td>
         <td><%= user_has_study.study %></td>
+        <td><%= user_has_study.where(study_id: study).size %></td>
         <td><%= user_has_study.user_role %></td>
         <td><%= link_to 'Show', user_has_study %></td>
         <td><%= link_to 'Edit', edit_user_has_study_path(user_has_study) %></td>
@@ -31,4 +33,3 @@
 
 <br>
 
-<%= link_to 'New User Has Study', new_user_has_study_path %>

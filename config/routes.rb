@@ -15,5 +15,8 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'users/index'
 
+  post '/:user_id/:user_has_study_id/user_has_studies' => 'user_has_studies#uhs_create', as: 'create_uhs'
+
+
   root 'home#index'
 end

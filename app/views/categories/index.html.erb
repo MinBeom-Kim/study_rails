@@ -19,7 +19,7 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.category_name %></td>
-        <td><%= category.studies.size %></td>
+        <td><%= category.size %></td>
         <td><%= link_to 'Show', category %></td>
         <% if can? :edit, @category %>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>

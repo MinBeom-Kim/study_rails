@@ -7,6 +7,14 @@ class UserHasStudiesController < ApplicationController
     @user_has_studies = UserHasStudy.all
   end
 
+  def uhs_create
+    @uhs_class = UserHasStudy.new
+    @uhs_class.user_id = params[:user_id]
+    @uhs_class.study_id = params[:user_has_study_id]
+    @uhs_class.save
+      redirect_to user_path(params[:user_id]), notice: '스터디 신청이 완료되었습니다.'
+  end
+
   # GET /user_has_studies/1
   # GET /user_has_studies/1.json
   def show
@@ -54,11 +62,9 @@ class UserHasStudiesController < ApplicationController
   # DELETE /user_has_studies/1
   # DELETE /user_has_studies/1.json
   def destroy
-    @user_has_study.destroy
-    respond_to do |format|
-      format.html { redirect_to user_has_studies_url, notice: 'User has study was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @uhs = UserHasStudy.find(params[:id])
+    @uhs.destroy
+      redirect_to study_path(@uhs.study_id)
   end
 
   private

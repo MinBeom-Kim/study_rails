@@ -1,4 +1,40 @@
-<p id="notice"><%= notice %></p>
+
+
+<div class="jumbotron" style="margin-bottom: 3 ">
+	<div class="container">
+        <h1 style="font-family:inherit">스터디 관리</h1>
+    </div>
+</div>
+
+<p>
+  <strong>스터디명 : </strong>
+  <%= @study.study_name %>
+<p>
+
+<table>
+  <th>스터디신청ID</th>
+  <th>카테고리</th>
+  <th>수강자</th>
+  <% @uhs_class.each do |user_has_study| %>
+  <tr>
+    <td><%= user_has_study.id %></td>
+    <td><%= Study.find(user_has_study.study_id).category_id %></td>
+    <td><%= User.find(user_has_study.user_id).user_name %></td>
+    <td><%= link_to 'Destroy', user_has_study, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+    <% end %>
+</table>
+
+<br>
+<br>
+
+<%= link_to 'Edit', edit_study_path(@study) %> |
+<%= link_to 'Back', studies_path %>
+
+<br>
+<br>
+<hr>
+
 
 <p>
   <strong>Category:</strong>
