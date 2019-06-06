@@ -11,6 +11,8 @@ class StudiesController < ApplicationController
   # GET /studies/1.json
   def show
     @study = Study.find(params[:id])
+    @Study = Study.all
+    @user = User.all
     @uhs_class = UserHasStudy.where(study_id: @study).all
   end
 

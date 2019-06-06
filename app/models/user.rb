@@ -17,6 +17,7 @@ class User < ApplicationRecord
     # do something before it gets added
   end
 
+  # 관리자와 유저 권한주는 메소드 // 특정 이메일만 관리자 권한을 줌
   def assign_default_role
     emails = ['admin01@gmail.com', 'admin02@gmail.com', 'admin03@gmail.com']
     if emails.include? self.email
@@ -26,6 +27,7 @@ class User < ApplicationRecord
     end
   end
 
+  # 관리자 권한이면 true를 리턴
   def user_role_admin?
     emails = ['admin01@gmail.com', 'admin02@gmail.com', 'admin03@gmail.com']
     if emails.include? self.email 
@@ -35,11 +37,11 @@ class User < ApplicationRecord
     end
   end
     
-
-users = User.with_role(:admin).preload(:roles)
-users.each do |user|
-  user.has_cached_role?(:member) # no extra queries
-end
+  # 값이 중복으로 들어가는 것 방지 --> 안됨.. 수정할 것
+  users = User.with_role(:admin).preload(:roles)
+  users.each do |user|
+    user.has_cached_role?(:member) # no extra queries
+  end
 
 
 

@@ -2,46 +2,49 @@
 
 <div class="jumbotron" style="margin-bottom: 3 ">
 	<div class="container">
-        <h1 style="font-family:inherit">스터디 관리</h1>
+        <h1 style="font-family:inherit"><%= @study.study_name %></h1>
     </div>
 </div>
 
 
 
 <p>
-  <strong>카테고리:</strong>
-  <%= @study.category %>
+  <strong>카테고리 :</strong>
+  <%= @study.category.category_name %>
 </p>
 
 <p>
-  <strong>Study name:</strong>
-  <%= @study.study_name %>
-</p>
-
-<p>
-  <strong>Intro:</strong>
+  <strong>개요 : </strong>
   <%= @study.intro %>
 </p>
 
 <p>
-  <strong>Goal:</strong>
+  <strong>목표 : </strong>
   <%= @study.goal %>
 </p>
 
 <p>
-  <strong>Curriculem:</strong>
+  <strong>커리큘럼 :</strong>
   <%= @study.curriculem %>
 </p>
 
 <p>
-  <strong>Max number:</strong>
+  <strong>정원 :</strong>
   <%= @study.max_number %>
 </p>
 
 <p>
-  <strong>Status:</strong>
+  <strong>개설 상태 :</strong>
   <%= @study.status %>
 </p>
 
-<%= link_to 'Edit', edit_study_path(@study) %> |
-<%= link_to 'Back', studies_path %>
+
+<%= link_to 'Edit', edit_study_path(@study) %>
+
+
+
+<% if current_user.user_role_admin? %>
+  | <%= link_to 'Back', studies_path %>
+<% elsif @study.study_status? %>
+  <%= button_to '신청하기', create_uhs_path(@user, @study), :method => :post %>
+<% end %>

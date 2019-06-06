@@ -12,7 +12,7 @@ class Ability
        else
         can [:index, :show], Category
         can [:index, :show, :new, :create], Study
-        can [:edit, :update, :destroy], Study, User_id: user.id
+        can [:edit, :update, :destroy], Study, user_id: user.id
        end 
     #
     # The first argument to `can` is the action you are giving the user
