@@ -7,9 +7,15 @@
 </div>
 
 
+<hr>
+<p>
+  <h3>모든 스터디</h3>
+</p>
+<hr>
 <table>
   <thead>
     <tr>
+      <th>카테고리</th>
       <th>스터디명</th>
       <th>개요</th>
       <th>목표</th>
@@ -23,6 +29,7 @@
   <tbody>
     <% @studies.each do |study| %>
       <tr>
+        <td><%= study.category.category_name %></td>
         <td><%= study.study_name %></td>
         <td><%= study.intro %></td>
         <td><%= study.goal %></td>

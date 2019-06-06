@@ -2,19 +2,42 @@
 
 <div class="jumbotron" style="margin-bottom: 3; ">
 	<div class="container">
-        <h1 style="font-family:inherit">관리</h1>
+        <h1 style="font-family:inherit">마이페이지</h1>
     </div>
 </div>
 
 <br>
+<div>
+  <h3>사용자 정보</h3>
+    <br>
+    <span style="font-size:18px; margin: 2%"><%= link_to "  회원정보 수정  ", edit_user_registration_path, :class => 'navbar-link' %>
+     | 
+    <%= link_to "  로그아웃  ", destroy_user_session_path, method: :delete, :class => 'navbar-link', data: { confirm: '로그아웃 하시겠습니까?' } %>
+    </span>
+    <br>
+<br>
+<hr>
 
-
+<div>
+<p>
+  <h3>스터디 관리하기</h3>
+</p>
+<br>
+<div style="margin-left: 2%">
+<% if current_user.has_role? :admin  %>
+    <h5><%= link_to '모든 스터디', studies_path %></h5>
+    <h5><%= link_to '스터디 신청 리스트', user_has_studies_path %></h5>
+<% else %>
+    <h5><%= link_to '스터디 제안 리스트', studies_path %></h5>
+    <h5><%= link_to '스터디 신청 리스트', user_has_studies_path %></h5>
+<% end %>
+</div>
+<br>
+<hr>
+</div>
 
 <br>
-
-<td><%= link_to 'Study Administrate', studies %></td>
-
-<%= link_to 'show', user_has_studies_path %>
+<hr>
 
 
 <p></p>

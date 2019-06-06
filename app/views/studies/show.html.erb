@@ -38,13 +38,13 @@
   <%= @study.status %>
 </p>
 
+<% if current_user.has_role? :admin  %>
+<%= link_to 'Edit', edit_category_study_path(@study) %>
+<% end %>
 
-<%= link_to 'Edit', edit_study_path(@study) %>
 
-
-
-<% if current_user.user_role_admin? %>
-  | <%= link_to 'Back', studies_path %>
+<% if current_user.has_role? :admin %>
+  | <%= link_to '스터디 관리', studies_path %>
 <% elsif @study.study_status? %>
   <%= button_to '신청하기', create_uhs_path(@user, @study), :method => :post %>
 <% end %>

@@ -32,11 +32,11 @@
 <%= render 'studies/form' %>
 
 
-
-<% if current_user.user_role_admin?  %>
+<hr>
+<% if current_user.has_role? :admin  %>
 <%= link_to '스터디 관리', studies_path %>
 <% end %>
-
-<br>
-<%= link_to 'Back', categories_path(@category) %>
-
+<hr>
+<hr>
+<%= link_to '모든 카테고리', categories_path(@category) %>
+<hr>
