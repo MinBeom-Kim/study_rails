@@ -2,7 +2,7 @@ class Category < ApplicationRecord
     has_many :studies, dependent: :destroy
     resourcify
 
-    def size
+    def size()
         return self.studies.size
     end
 

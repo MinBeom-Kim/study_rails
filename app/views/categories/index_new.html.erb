@@ -19,7 +19,7 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.category_name %></td>
-        <td><%= category.studies.size %></td>
+        <td><%= category.size() %></td>
       </tr>
     <% end %>
   </tbody>

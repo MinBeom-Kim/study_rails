@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:sign_up, keys: [:user_phone])
     end
 
+    rescue_from CanCan::AccessDenied do |exception|
+        redirect_to main_app.root_path, alert: exception.message
+    end
+
 end

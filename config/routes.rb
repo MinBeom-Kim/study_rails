@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :studies
   end
 
+  devise_scope :user do 
+    match '/sessions/user', to: 'devise/sessions#create', via: :post
+  end
+
   resources :sessions, only: [:update]
 
   get 'home/index'
