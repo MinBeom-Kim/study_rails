@@ -28,12 +28,12 @@
   </div>
 
 
-  
+  <% if current_user.has_role? :admin  %>
   <div class="field">
     <%= form.label :status %>
     <%= form.check_box :status %>
   </div>
- 
+ <% end %>
 
   <div class="actions">
     <%= form.submit %>

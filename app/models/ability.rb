@@ -10,8 +10,8 @@ class Ability
        if user.has_role? :admin
          can :manage, :all
        else
-        can [:index, :show], Category
-        can [:index, :show, :new, :create], Study
+        can [:index, :show], :all
+        can [:new, :create], Study
         can [:edit, :update, :destroy], Study, user_email: user.email
        end 
     #

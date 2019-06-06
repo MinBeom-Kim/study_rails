@@ -32,7 +32,12 @@ class StudiesController < ApplicationController
     @category = Category.find(params[:category_id])
     @study = @category.studies.create(study_params)
     if @study.save
-      redirect_to category_path(@category), notice: '스터디가 성공적으로 등록되었습니다.'
+      @uhs_class = UserHasStudy.new
+      @uhs_class.study_id = Study.maximum(:id)
+      @uhs_class.user_id = current_user.id
+      @uhs_class.user_role = 0
+      @uhs_class.save
+      redirect_back(fallback_location: root_path, notice: '스터디를 성공적으로 제안하셨습니다. 관리자 승인을 기다려주세요')
     else
       redirect_to category_path(@category), notice: '비어있는 칸이 있습니다. 다시 등록해주세요.'
     end

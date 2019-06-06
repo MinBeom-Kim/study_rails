@@ -21,6 +21,9 @@ Rails.application.routes.draw do
 
   post '/:user_id/:study_id/user_has_studies' => 'user_has_studies#uhs_create', as: 'create_uhs'
 
+  post '/:user_id/:study_id/user_has_studies' => 'user_has_studies#uhs_study_create', as: 'create_study_uhs'
+
+  post '/categories/:category_id/create_studies' => 'studies#create', as: 'create_study'
 
   root 'home#index'
 end
