@@ -12,7 +12,7 @@ class UserHasStudiesController < ApplicationController
     @uhs_class.study_id = params[:study_id]
     @uhs_class.user_id = params[:user_id]
     @uhs_class.save
-      redirect_to user_path(params[:user_id]), notice: '스터디 신청이 완료되었습니다.'
+      redirect_back(fallback_location: root_path, notice: '스터디 신청이 완료되었습니다.')
   end
 
   # GET /user_has_studies/1

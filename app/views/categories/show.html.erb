@@ -10,6 +10,11 @@
     <tr>
       <td>
       <%= link_to study.study_name, [study.category, study] %></td>
+      <td>
+      <% if (current_user.has_role? :user) && (@study.study_status?) %>
+        <%= button_to '신청하기', create_uhs_path(current_user.id, @study), :method => :post %>
+      <% end %>
+      </td>
       <% if can? :edit, @category.studies %>
       <td>  | <%= link_to 'Edit', edit_category_study_path(@category, study) %> | </td>
       <% end %>
