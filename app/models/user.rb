@@ -24,8 +24,17 @@ class User < ApplicationRecord
     else 
       add_role(:user)
     end
-    
   end
+
+  def user_role_admin?
+    emails = ['admin01@gmail.com', 'admin02@gmail.com', 'admin03@gmail.com']
+    if emails.include? self.email 
+      return true
+    else 
+      return false
+    end
+  end
+    
 
 users = User.with_role(:admin).preload(:roles)
 users.each do |user|

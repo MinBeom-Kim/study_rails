@@ -26,11 +26,12 @@
     <%= form.number_field :max_number %>
   </div>
 
+  <% if current_user.user_role_admin?  %>
   <div class="field">
     <%= form.label :status %>
     <%= form.check_box :status %>
   </div>
-
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

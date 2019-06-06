@@ -20,13 +20,17 @@
 
 <br>
 <hr>
+
+
 <p>
   <strong>스터디 신청하기</strong>
 </p>
 
 <%= render 'studies/form' %>
 
+<% if current_user.user_role_admin?  %>
 <%= link_to 'Study list', studies_path %>
+<% end %>
 <br>
 <%= link_to 'Back', categories_path(@category) %>
 

@@ -29,7 +29,11 @@ class StudiesController < ApplicationController
   def create
     @category = Category.find(params[:category_id])
     @study = @category.studies.create(study_params)
-    redirect_to category_path(@category)
+    if @study.save
+      redirect_to category_path(@category), notice: '스터디가 성공적으로 등록되었습니다.'
+    else
+      redirect_to category_path(@category), notice: '비어있는 칸이 있습니다. 다시 등록해주세요.'
+    end
   end
 
   # PATCH/PUT /studies/1
