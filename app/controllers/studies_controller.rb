@@ -18,7 +18,9 @@ class StudiesController < ApplicationController
 
   # GET /studies/new
   def new
+    @category = Category.find(params[:category_id])
     @study = @category.studies.new
+
   end
 
   # GET /studies/1/edit

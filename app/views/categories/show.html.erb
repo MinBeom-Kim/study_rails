@@ -1,18 +1,25 @@
 
-<br>
-<p>
-  <strong>Category name:</strong>
-  <%= @category.category_name %>
-</p>
 
-<table>
+
+<div class="jumbotron" style="margin-bottom: 3 ">
+	<div class="container">
+        <h1 style="font-family:inherit">
+          <%= @category.category_name %>
+          </h1>
+    </div>
+</div>
+
+
+<table style = "margin: 2%">
   <% @category.studies.each do |study| %>
     <tr>
       <td>
       <%= link_to study.study_name, [study.category, study] %></td>
       <td>
-      <% if (current_user.has_role? :user) && (@study.study_status?) %>
+      <% if current_user.has_role? :user %>
+        <% if study.study_status? %>
         <%= button_to '신청하기', create_uhs_path(current_user.id, @study), :method => :post %>
+        <% end %>
       <% end %>
       </td>
       <% if can? :edit, @category.studies %>
@@ -27,7 +34,6 @@
 
 <br>
 <hr>
-
 
 <p>
   <strong>스터디 제안하기</strong>
