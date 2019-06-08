@@ -21,7 +21,9 @@
             <div>
               <p class="navbar-text pull-right">
               <% if user_signed_in? %>
-                <strong style="color:#E8ECFF"><%= current_user.email %> </strong>  | 
+                <strong style="color:#E8ECFF"><%= current_user.email %> </strong>  |<% if current_user.has_role? :admin  %>
+                <%= link_to '관리 페이지', rails_admin_path, :class => 'navbar-link' %> | 
+                <% end %>
                 <%= link_to " 마이페이지 ",  users_index_path, :class => 'navbar-link' %> | 
                 <%= link_to "  로그아웃  ", destroy_user_session_path, method: :delete, :class => 'navbar-link', data: { confirm: '로그아웃 하시겠습니까?' } %>
               <% else %>
