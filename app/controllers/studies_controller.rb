@@ -20,6 +20,7 @@ class StudiesController < ApplicationController
   def new
     @category = Category.find(params[:category_id])
     @study = @category.studies.new
+    redirect_back(fallback_location: root_path)
 
   end
 

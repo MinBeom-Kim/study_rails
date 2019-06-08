@@ -37,11 +37,7 @@ class User < ApplicationRecord
     end
   end
     
-  # 값이 중복으로 들어가는 것 방지 --> 안됨.. 수정할 것
-  users = User.with_role(:admin).preload(:roles)
-  users.each do |user|
-    user.has_cached_role?(:user) # no extra queries
-  end
+
 
 
 
