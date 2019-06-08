@@ -46,12 +46,21 @@ class Study < ApplicationRecord
     end
   end
 
-  # 마감 알림
+  # 마감 임박 알림
   def almost_full?
     seat = self.max_number - self.size
-    if seat <= 3
+    if seat <= 5 && seat != 0
       return "곧 마감됩니다."
     else 
+      return ""
+    end
+  end
+
+  # 마감 알림
+  def full?
+    if self.max_number - self.size == 0
+      return "마감되었습니다."
+    else
       return ""
     end
   end
