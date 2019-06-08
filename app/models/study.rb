@@ -6,6 +6,9 @@ class Study < ApplicationRecord
   # 유효성 검사 : 모든 입력 폼이 입력되지 않으면 에러 메시지 출력
   validates :study_name, :intro, :goal, :curriculem, :max_number, :presence => true
 
+  # default 정렬 : 스터디 이름을 가나다 순으로 정렬
+    default_scope { order(study_name: :ASC)}
+
   # 스터디 개설 유무 확인
   def study_status?
     if self.status == true
@@ -26,7 +29,12 @@ class Study < ApplicationRecord
 
   # 스터디 별 신청인원
   def size
-    return UserHasStudy.where(study_id: self).size  
+    size = UserHasStudy.where(study_id: self).size - 1
+    if size <= 0
+      return 0
+    else
+      return size
+    end
   end
 
   # 정원 초과인지
