@@ -6,9 +6,10 @@
     </div>
 </div>
 
+<div class="container">
 <br>
 <div>
-  <h3>사용자 정보</h3>
+  <h3 style = "color: #489DD4;">사용자 정보</h3>
     <br>
     <span style="font-size:18px; margin: 2%"><%= link_to "  회원정보 수정  ", edit_user_registration_path, :class => 'navbar-link' %>
      | 
@@ -20,7 +21,7 @@
 
 <div>
 <p>
-  <h3>스터디 관리하기</h3>
+  <h3 style = "color: #489DD4;">스터디 관리하기</h3>
 </p>
 <br>
 <div style="margin-left: 2%">
@@ -38,7 +39,7 @@
 <% if current_user.has_role? :admin  %>
 <div>
 <p>
-  <h3><%= link_to '사이트 관리하기', rails_admin_path %></h3>
+  <h3><%= link_to '사이트 관리하기', rails_admin_path, {:style => 'color:#489DD4'} %></h3>
 </p>
 <br>
 
@@ -50,4 +51,4 @@
 
 
 <p></p>
-
+</div>

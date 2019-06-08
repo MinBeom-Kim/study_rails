@@ -3,34 +3,34 @@
 
 
   <div class="field">
-    <%= form.label :study_name %>
+    <%= form.label :스터디명 %>
     <%= form.text_field :study_name %>
   </div>
 
   <div class="field">
-    <%= form.label :intro %>
+    <%= form.label :개요 %>
     <%= form.text_field :intro %>
   </div>
 
   <div class="field">
-    <%= form.label :goal %>
+    <%= form.label :목표 %>
     <%= form.text_field :goal %>
   </div>
 
   <div class="field">
-    <%= form.label :curriculem %>
+    <%= form.label :커리큘럼 %>
     <%= form.text_field :curriculem %>
   </div>
 
   <div class="field">
-    <%= form.label :max_number %>
+    <%= form.label :정원 %>
     <%= form.number_field :max_number %>
   </div>
 
 
   <% if current_user.has_role? :admin  %>
   <div class="field">
-    <%= form.label :status %>
+    <%= form.label :개설유무 %>
     <%= form.check_box :status %>
   </div>
  <% end %>

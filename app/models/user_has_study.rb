@@ -2,6 +2,7 @@ class UserHasStudy < ApplicationRecord
   belongs_to :user, required: false
   belongs_to :study, required: false
 
+  # 중복 저장 방지
   validates_uniqueness_of :user_id, :scope => :study_id, :notice => "스터디를 이미 신청하였습니다."
 
   def user_role?
