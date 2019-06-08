@@ -13,6 +13,4 @@ validates :resource_type,
 
 scopify
 
-
-
 end

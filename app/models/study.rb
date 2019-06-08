@@ -29,7 +29,12 @@ class Study < ApplicationRecord
 
   # 스터디 별 신청인원
   def size
-    return UserHasStudy.where(study_id: self).size  
+    size = UserHasStudy.where(study_id: self).size - 1
+    if size <= 0
+      return 0
+    else
+      return size
+    end
   end
 
   # 정원 초과인지
