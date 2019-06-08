@@ -6,4 +6,13 @@ class ApplicationRecord < ActiveRecord::Base
     redirect_back(fallback_location: root_path)
   end
 
+  # 사용자 이름 출력
+  def user_name?
+    user = User.find(user_id)
+    return user.user_name
+  end
+
+
+
+
 end

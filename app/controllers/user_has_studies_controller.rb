@@ -8,12 +8,22 @@ class UserHasStudiesController < ApplicationController
   end
 
   def uhs_create
-    @uhs_class = UserHasStudy.new
-    @uhs_class.study_id = params[:study_id]
-    @uhs_class.user_id = params[:user_id]
-    @uhs_class.user_role = 1
-    @uhs_class.save
-      redirect_back(fallback_location: root_path, notice: '스터디 신청이 완료되었습니다.')
+    study = Study.find(params[:study_id])
+    if study.check_full?
+      redirect_back(fallback_location: root_path, notice: '정원이 초과되어 스터디 신청이 안되었습니다.')
+    else
+      @uhs_class = UserHasStudy.new
+      @uhs_class.study_id = params[:study_id]
+      @uhs_class.user_id = params[:user_id]
+      @uhs_class.user_role = 1
+      @uhs_class.save
+        redirect_back(fallback_location: root_path, notice: '스터디 신청이 완료되었습니다.')
+    end
+  end
+
+  def enrolled_studies
+    @user = User.find(params[:user_id])
+    @user_has_study = UserHasStudy.where(user_id: params[:user_id])
   end
 
   # GET /user_has_studies/1

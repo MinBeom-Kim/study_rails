@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user_new = User.new
+    @user_has_study = UserHasStudy.where(user_id: params[:user_id])
   end
 
   # GET /users/1

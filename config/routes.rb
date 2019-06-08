@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :studies
   resources :user_has_studies
   resources :categories do
@@ -24,6 +25,8 @@ Rails.application.routes.draw do
   post '/:user_id/:study_id/user_has_studies' => 'user_has_studies#uhs_study_create', as: 'create_study_uhs'
 
   post '/categories/:category_id/create_studies' => 'studies#create', as: 'create_study'
+
+  get '/user_has_studies/:user_id/enrolled_studies' => 'user_has_studies#enrolled_studies', as: 'enrolled_studies'
 
   root 'home#index'
 end

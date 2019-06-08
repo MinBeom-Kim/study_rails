@@ -15,11 +15,26 @@ class Study < ApplicationRecord
     end
   end
 
+  
   def self_create?
     if UserHasStudy.user_id == current_user.id
       return true
     else
       return false
+    end
+  end
+
+  # 스터디 별 신청인원
+  def size
+    return UserHasStudy.where(study_id: self).size  
+  end
+
+  # 정원 초과인지
+  def check_full?
+    if self.max_number > self.size
+      return false
+    else 
+      return true
     end
   end
 

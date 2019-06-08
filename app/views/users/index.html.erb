@@ -28,13 +28,22 @@
     <h5><%= link_to '모든 스터디', studies_path %></h5>
     <h5><%= link_to '스터디 신청 리스트', user_has_studies_path %></h5>
 <% else %>
-    <h5><%= link_to '스터디 제안 리스트', studies_path %></h5>
-    <h5><%= link_to '스터디 신청 리스트', user_has_studies_path %></h5>
+    <h5><%= link_to '스터디 신청/제안 리스트로 이동', enrolled_studies_path(current_user.id) %></h5>
 <% end %>
 </div>
 <br>
 <hr>
 </div>
+
+<% if current_user.has_role? :admin  %>
+<div>
+<p>
+  <h3><%= link_to '사이트 관리하기', rails_admin_path %></h3>
+</p>
+<br>
+
+</div>
+<% end %>
 
 <br>
 <hr>
