@@ -12,10 +12,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @study = Study.find(params[:id])
     @Study = Study.all
     @user = User.all
-    @uhs_class = UserHasStudy.where(study_id: @study).all
+    @uhs_class = UserHasStudy.where(study_id: @Study).all
   end
 
   # GET /categories/new
