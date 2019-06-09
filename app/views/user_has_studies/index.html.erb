@@ -23,7 +23,6 @@
         <td><%= user_has_study.user_role? %></td>
         <td><%= Study.find(user_has_study.study_id).study_name %></td>
         <td><%= link_to 'Show', user_has_study %></td>
-        <td><%= link_to 'Edit', edit_user_has_study_path(user_has_study) %></td>
         <td><%= link_to 'Destroy', user_has_study, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

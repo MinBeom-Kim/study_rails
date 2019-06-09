@@ -2,18 +2,18 @@
 
 <p>
   <strong>User:</strong>
-  <%= @user_has_study.user %>
+  <%= @user_has_study.user.user_name %>
 </p>
 
 <p>
   <strong>Study:</strong>
-  <%= @user_has_study.study %>
+  <%= @user_has_study.study.study_name %>
 </p>
 
 <p>
   <strong>User role:</strong>
-  <%= @user_has_study.user_role %>
+  <%= @user_has_study.user_role? %>
 </p>
 
-<%= link_to 'Edit', edit_user_has_study_path(@user_has_study) %> |
+
 <%= link_to 'Back', user_has_studies_path %>
