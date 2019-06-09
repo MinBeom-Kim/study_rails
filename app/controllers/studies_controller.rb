@@ -59,7 +59,7 @@ class StudiesController < ApplicationController
   # DELETE /studies/1.json
   def destroy
     @study.destroy
-    redirect_back(fallback_location: root_path, notice: '성공적으로 삭제되었습니다.')
+    redirect_back(fallback_location: root_path, notice: '정상적으로 삭제되었습니다.')
   end
 
   private
