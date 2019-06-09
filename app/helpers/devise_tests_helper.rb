@@ -1,0 +1,2 @@
+module DeviseTestsHelper
+end

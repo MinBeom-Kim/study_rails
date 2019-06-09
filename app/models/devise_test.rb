@@ -1,0 +1,2 @@
+class DeviseTest < ApplicationRecord
+end

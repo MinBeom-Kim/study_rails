@@ -33,10 +33,11 @@
 <% end %>
 </div>
 <br>
-<hr>
+
 </div>
 
 <% if current_user.has_role? :admin  %>
+<hr>
 <div>
 <p>
   <h3><%= link_to '사이트 관리하기', rails_admin_path, {:style => 'color:#489DD4'} %></h3>
