@@ -46,7 +46,7 @@
 
 <br>
 <% if current_user.has_role? :admin  %>
-<%= link_to 'Edit', edit_category_study_path(@study) %>
+<%= link_to 'Edit', edit_category_study_path(@study.category) %>
 <% end %>
 
 

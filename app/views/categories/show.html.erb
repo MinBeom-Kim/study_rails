@@ -18,7 +18,7 @@
       <td>
       <% if current_user.has_role? :user %>
         <% if study.study_status? %>
-        <%= button_to '신청하기', create_uhs_path(current_user.id, study.category), :method => :post %>
+        <%= button_to '신청하기', create_uhs_path(current_user.id, study), :method => :post %>
         <td><strong style="color:#C76874"><%= study.almost_full? %><%= study.full? %></strong><td>
         <% end %>
       <% end %>
