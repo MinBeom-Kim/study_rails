@@ -41,8 +41,8 @@
         <td><%= study.max_number %></td>
         <td><%= study.size %></td>
         <td><%= study.status %></td>
-        <td><%= link_to 'Show', study %></td>
-        <td><%= link_to 'Edit', edit_study_path(study) %></td>
+        <td><%= link_to 'Show', category_study_path(study.category, study) %></td>
+        <td><%= link_to 'Edit', edit_category_study_path(study.category, study) %></td>
         <td><%= link_to 'Destroy', [study.category, study], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
