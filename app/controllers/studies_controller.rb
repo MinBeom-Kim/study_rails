@@ -26,7 +26,8 @@ class StudiesController < ApplicationController
 
   # GET /studies/1/edit
   def edit
-    @study = @category.studies.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @study = Study.find(params[:id])
   end
 
   # POST /studies
@@ -49,7 +50,7 @@ class StudiesController < ApplicationController
   # PATCH/PUT /studies/1
   # PATCH/PUT /studies/1.json
   def update
-    @study = @category.studies.find(params[:id])
+    @study = Study.find(params[:id])
     @study.update(study_params)
     redirect_to category_path(@category)
   end

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :devise_tests
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :studies
   resources :user_has_studies

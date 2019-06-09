@@ -24,7 +24,7 @@
       <% end %>
       </td>
       <% if can? :edit, @category.studies %>
-      <td>  | <%= link_to 'Edit', edit_category_study_path(@category, study) %> | </td>
+      <td>  | <%= link_to 'Edit', edit_category_study_path(@category, study.category) %> | </td>
       <% end %>
       <% if can? :destroy, @category.studies%>
       <td> | <%= link_to 'Destroy', [study.category, study], method: :delete, data: { confirm: 'Are you sure?' } %> | </td>
