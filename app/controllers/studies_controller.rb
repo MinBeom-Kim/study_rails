@@ -50,6 +50,7 @@ class StudiesController < ApplicationController
   # PATCH/PUT /studies/1
   # PATCH/PUT /studies/1.json
   def update
+    @category = Category.find(params[:category_id])
     @study = Study.find(params[:id])
     @study.update(study_params)
     redirect_to category_path(@category)
@@ -65,7 +66,7 @@ class StudiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_study
-      @category = Category.find(params[:category_id])
+      # @category = Category.find(params[:category_id])
       @study = Study.find(params[:id])
     end
 
