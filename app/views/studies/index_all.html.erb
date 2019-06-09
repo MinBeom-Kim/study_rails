@@ -11,7 +11,7 @@
       <% elsif study.status? %>
         <div style="font: Bold; font-size:15px; margin-left:5% ">
         <p>
-            <td style="margin:2%"><%= link_to study.study_name, [study.category, study] %> </td> ||
+            <td style="margin:2%"><%= link_to study.study_name, [study.category, study] %> </td>||
             <td style="margin:2%"><strong style="color:#C76874"><%= study.almost_full? %><%= study.full? %></strong></td>
         </p>
         </div>
