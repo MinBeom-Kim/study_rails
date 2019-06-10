@@ -7,6 +7,17 @@ class StudiesController < ApplicationController
     @studies = Study.all
   end
 
+  def search
+    @studies = Study.search do
+      keywords params[:query]
+    end.results
+  
+    respond_to do |format|
+      format.html { render :action => "index" }
+      format.xml  { render :xml => @studies }
+    end
+  end
+
   # GET /studies/1
   # GET /studies/1.json
   def show
