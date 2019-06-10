@@ -19,7 +19,7 @@ class Study < ApplicationRecord
     end
   end
 
-  
+  # 자신이 개설한 스터디인지
   def self_create?
     if UserHasStudy.user_id == current_user.id
       return true

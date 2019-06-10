@@ -18,11 +18,6 @@ ActiveRecord::Schema.define(version: 2019_06_09_152024) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "devise_tests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
