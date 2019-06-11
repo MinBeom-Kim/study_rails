@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :studies
+  resources :studies do
+    collection do
+      get :search
+    end
+  end
   resources :user_has_studies
   resources :categories do
     resources :studies
   end
+
 
   devise_scope :user do 
     match '/sessions/user', to: 'devise/sessions#create', via: :post
@@ -27,6 +32,8 @@ Rails.application.routes.draw do
   post '/categories/:category_id/create_studies' => 'studies#create', as: 'create_study'
 
   get '/user_has_studies/:user_id/enrolled_studies' => 'user_has_studies#enrolled_studies', as: 'enrolled_studies'
+
+  get 'studies/search' => 'studies#search'
 
   root 'home#index'
 end

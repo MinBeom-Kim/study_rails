@@ -7,6 +7,18 @@ class StudiesController < ApplicationController
     @studies = Study.all
   end
 
+  # 검색관련 --> rsolr 서버 실행 필요 --> 상위 jdk 호환 안함 --> 오류있음
+  def search
+    @studies = Study.search do
+      keywords params[:query]
+    end.results
+  
+    respond_to do |format|
+      format.html { render :action => "index" }
+      format.xml  { render :xml => @studies }
+    end
+  end
+
   # GET /studies/1
   # GET /studies/1.json
   def show
