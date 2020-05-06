@@ -14,8 +14,7 @@
 # Do not set this db to the same as development or production.
 
 
-default:
-  <<: *default
+default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
