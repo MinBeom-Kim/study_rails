@@ -14,10 +14,8 @@ default: &default
 # Do not set this db to the same as development or production.
 
 production:
-  <<: *default
-  database: db/production.sqlite3
-  #adapter: postgresql
-  #database: db/studyrailss_production
+  adapter: postgresql
+  database: db/studyrailss_production
   pool: 5
   timeout: 5000
 
