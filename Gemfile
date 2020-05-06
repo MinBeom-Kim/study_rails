@@ -61,23 +61,6 @@ group :development, :test do
   #gem 'pg'
 end
 
-development:
-  adapter: postgresql
-  database: my_database_development
-  pool: 5
-  timeout: 5000
-test:
-  adapter: postgresql
-  database: my_database_test
-  pool: 5
-  timeout: 5000
-
-production:
-  adapter: postgresql
-  database: my_database_production
-  pool: 5
-  timeout: 5000
-
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
