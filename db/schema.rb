@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord: do
+ActiveRecord:
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
