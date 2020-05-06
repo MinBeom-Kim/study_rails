@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_06_09_152024) do
     t.string "category_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
+  end 
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
