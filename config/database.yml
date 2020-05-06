@@ -4,10 +4,10 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-#default: &default
-#  adapter: sqlite3
-#  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#  timeout: 5000
+default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 #development:
 #  <<: *default
@@ -20,23 +20,19 @@
 #  <<: *default
 #  database: db/test.sqlite3
 
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#default: &default
+#  adapter: postgresql
+#  encoding: unicode
+#  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
 development:
-  adapter: postgresql
-  database: db/development_test_development
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: db/development.sqlite3
 
 test:
-  adapter: postgresql
-  database: db/development_test
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: db/test.sqlite3
 
 production:
   adapter: postgresql
