@@ -36,6 +36,4 @@ test:
 
 production:
   adapter: postgresql
-  database: db/development_production
-  pool: 5
-  timeout: 5000
+  encoding: unicode
