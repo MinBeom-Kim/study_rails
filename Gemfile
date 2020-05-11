@@ -10,9 +10,9 @@ gem 'rails', '~> 5.2.3'
 
 gem 'pg'
 
-group :production do
-  gem 'rails_12factor'
-end
+# group :production do
+#   gem 'rails_12factor'
+# end
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
